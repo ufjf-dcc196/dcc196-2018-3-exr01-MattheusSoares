@@ -6,4 +6,5 @@
     <string name="txt_total_aluno">Total de Alunos Cadastrados:</string>
     <string name="txt_total_servidor">Total de Servidores Cadastrados:</string>
     <string name="txt_total_externo">Total de Cadastros Externos:</string>
+    <string name="txt_seja_bem_vindo">Seja bem-vindo!</string>
 </resources>
