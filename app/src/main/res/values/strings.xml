@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Atv_001</string>
+    <string name="app_name">Atividade 001</string>
     <string name="lbl_cadastrar_externo">Cadastrar Externo</string>
     <string name="lbl_cadastrar_servidor">Cadastrar Servidor</string>
     <string name="lbl_cadastrar_aluno">Cadastrar Aluno</string>

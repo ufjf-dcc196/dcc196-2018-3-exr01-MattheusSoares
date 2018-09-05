@@ -1,7 +1,9 @@
 package br.ufjf.dcc196.atv_001;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,5 +23,24 @@ public class MainActivity extends AppCompatActivity {
         btnCadastrarAluno = (Button) findViewById(R.id.btnCadastroAluno);
         btnCadastrarServidor = (Button) findViewById(R.id.btnCadastroServidor);
         btnCadastrarExterno = (Button) findViewById(R.id.btnCadastroExterno);
+
+        btnCadastrarAluno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_1 = new Intent();
+            }
+        });
+        btnCadastrarServidor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnCadastrarExterno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }
