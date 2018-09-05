@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Atv_001</string>
+    <string name="lbl_cadastrar_externo">Cadastrar Externo</string>
+    <string name="lbl_cadastrar_servidor">Cadastrar Servidor</string>
+    <string name="lbl_cadastrar_aluno">Cadastrar Aluno</string>
+    <string name="txt_total_aluno">Total de Alunos Cadastrados:</string>
+    <string name="txt_total_servidor">Total de Servidores Cadastrados:</string>
+    <string name="txt_total_externo">Total de Cadastros Externos:</string>
+</resources>
