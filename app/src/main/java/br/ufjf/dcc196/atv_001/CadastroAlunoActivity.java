@@ -17,7 +17,6 @@ public class CadastroAlunoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_aluno);
 
-        setContentView(R.layout.activity_cadastro_servidor);
         txtNomeAluno = findViewById(R.id.txtAlunoNome);
         txtMatriculaAluno = findViewById(R.id.txtAlunoMatricula);
         btnSalvarAluno = findViewById(R.id.btnSalvarAluno);

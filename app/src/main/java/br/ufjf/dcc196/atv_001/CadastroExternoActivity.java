@@ -23,11 +23,10 @@ public class CadastroExternoActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         btnSalvarExterno.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent resultado = new Intent();
                 resultado.putExtra(MainActivity.NOME,txtNomeExterno.getText().toString());
                 resultado.putExtra(MainActivity.EMAIL_EXTERNO,txtEmailExterno.getText().toString());
-
                 setResult(Activity.RESULT_OK, resultado);
                 finish();
 
