@@ -7,11 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     public static final String NOME = "nome";
     public static final String ALUNO_MATRICULA = "";
     public static final String SERVIDOR_SIAPE = "";
     public static final String EMAIL_EXTERNO = "";
+
+    public ArrayList<String> Alunos_Nomes;
+    public ArrayList<String> Alunos_Matriculas;
+
+    public ArrayList<String> Servidor_Nomes;
+    public ArrayList<String> Servidor_SIAPE;
+
+    public ArrayList<String> Externo_Nomes;
+    public ArrayList<String> Externo_EMails;
 
     public static int contador_alunos = 0;
     public static int contador_servidor = 0;
@@ -37,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent_1 = new Intent(MainActivity.this,CadastroAlunoActivity.class);
-                intent_1.putExtra(NOME,contador_alunos);
                 startActivityForResult(intent_1, MainActivity.REQUEST_ALUNO);
 
             }
@@ -46,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent_2 = new Intent(MainActivity.this,CadastroServidorActivity.class);
-                intent_2.putExtra(NOME,contador_servidor);
                 startActivityForResult(intent_2, MainActivity.REQUEST_SERVIDOR);
 
             }
@@ -55,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent_3 = new Intent(MainActivity.this,CadastroExternoActivity.class);
-                intent_3.putExtra(NOME,contador_externo);
                 startActivityForResult(intent_3, MainActivity.REQUEST_EXTERNO);
 
             }
@@ -68,17 +76,25 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode == MainActivity.REQUEST_ALUNO && resultCode == Activity.RESULT_OK && data != null){
             Bundle bundleResultado = data.getExtras();
-            contador_alunos+=1;
+
         }
+
+
         if(requestCode == MainActivity.REQUEST_SERVIDOR && resultCode == Activity.RESULT_OK && data != null){
             Bundle bundleResultado = data.getExtras();
-            contador_servidor+=1;
+
+            if(bundleResultado.getString(NOME)!=null && bundleResultado.getString(SERVIDOR_SIAPE)!=null){
+                Servidor_Nomes.add(bundleResultado.getString(NOME));
+                Servidor_SIAPE.add(bundleResultado.getString(SERVIDOR_SIAPE));
+            }
+
         }
+
+
         if(requestCode == MainActivity.REQUEST_EXTERNO && resultCode == Activity.RESULT_OK && data != null){
             Bundle bundleResultado = data.getExtras();
-            contador_externo+=1;
         }
-        //atualiza contador
+        //atualiza texto do contador
 
     }
 
