@@ -11,4 +11,6 @@
     <string name="lblServidorSIAPE">SIAPE:</string>
     <string name="lblAlunoMatricula">Matrícula:</string>
     <string name="lblAlunoNome">Nome:</string>
+    <string name="lblNomeExterno">Nome:</string>
+    <string name="lblEmailExterno">Email:</string>
 </resources>

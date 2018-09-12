@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -24,10 +25,6 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<String> Externo_Nomes;
     public ArrayList<String> Externo_EMails;
 
-    public static int contador_alunos = 0;
-    public static int contador_servidor = 0;
-    public static int contador_externo = 0;
-
     public static final int REQUEST_ALUNO = 1;
     public static final int REQUEST_SERVIDOR = 1;
     public static final int REQUEST_EXTERNO = 1;
@@ -36,10 +33,19 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCadastrarServidor;
     private Button btnCadastrarExterno;
 
+    private TextView txtTotalAlunos;
+    private TextView txtTotalServidor;
+    private TextView txtTotalExterno;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        txtTotalAlunos = findViewById(R.id.txtTotalAlunos);
+        txtTotalExterno = findViewById(R.id.txtTotalExterno);
+        txtTotalServidor = findViewById(R.id.txtTotalServidor);
+
         btnCadastrarAluno = (Button) findViewById(R.id.btnCadastroAluno);
         btnCadastrarServidor = (Button) findViewById(R.id.btnCadastroServidor);
         btnCadastrarExterno = (Button) findViewById(R.id.btnCadastroExterno);
@@ -74,27 +80,34 @@ public class MainActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
+
         if(requestCode == MainActivity.REQUEST_ALUNO && resultCode == Activity.RESULT_OK && data != null){
             Bundle bundleResultado = data.getExtras();
-
+            if(bundleResultado.getString(NOME)!=null && bundleResultado.getString(ALUNO_MATRICULA)!=null){
+                Alunos_Nomes.add(bundleResultado.getString(NOME));
+                Alunos_Matriculas.add(bundleResultado.getString(ALUNO_MATRICULA));
+            }
+            txtTotalAlunos.setText("Total de Alunos Cadastrados"+Alunos_Matriculas.size());
         }
-
 
         if(requestCode == MainActivity.REQUEST_SERVIDOR && resultCode == Activity.RESULT_OK && data != null){
             Bundle bundleResultado = data.getExtras();
-
             if(bundleResultado.getString(NOME)!=null && bundleResultado.getString(SERVIDOR_SIAPE)!=null){
                 Servidor_Nomes.add(bundleResultado.getString(NOME));
                 Servidor_SIAPE.add(bundleResultado.getString(SERVIDOR_SIAPE));
             }
-
+            txtTotalServidor.setText("Total de Servidores Cadastrados"+Servidor_SIAPE.size());
         }
 
 
         if(requestCode == MainActivity.REQUEST_EXTERNO && resultCode == Activity.RESULT_OK && data != null){
             Bundle bundleResultado = data.getExtras();
+            if(bundleResultado.getString(NOME)!=null && bundleResultado.getString(EMAIL_EXTERNO)!=null){
+                Externo_Nomes.add(bundleResultado.getString(NOME));
+                Externo_EMails.add(bundleResultado.getString(EMAIL_EXTERNO));
+            }
+            txtTotalExterno.setText("Total de Cadastrados Externos"+Externo_EMails.size());
         }
-        //atualiza texto do contador
 
     }
 
